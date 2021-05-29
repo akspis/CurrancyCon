@@ -1,77 +1,77 @@
-import React,{useEffect , useState} from 'react' 
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import './App.css';
 import Currancy from './Currancy'
 
-const Api = 'http://api.exchangeratesapi.io/v1/latest?access_key=b540c23e50dd9b7640727b8dcd40a15f&format=1'
-function App(){
-  const [currancyOptions, setcurrancyOptions] = useState([])
-  const [fromCurrancy, setfromCurrancy] = useState()
-  const [toCurrancy, settoCurrancy] = useState()
+const URL = 'http://api.exchangeratesapi.io/v1/latest?access_key=b540c23e50dd9b7640727b8dcd40a15f&format=1'
+
+function App() {
+  const [CurrencyOption, setCurrencyOption] = useState([])
+  const [fromCurrency, setfromCurrency] = useState()
+  const [toCurrency, settoCurrency] = useState()
   const [exchangeRate, setexchangeRate] = useState()
-  const [amount, setamount] = useState(1)
-  const [checkCurrancyStatus, setcheckCurrancyStatus] = useState(true)
+  const [Amount, setAmount] = useState(1)
+  const [CurrencyStatus, setCurrencyStatus] = useState(true)
+  
 
   let fromAmount , toAmount
-  if(fromAmount){
-    fromAmount = amount 
-    toAmount = amount * exchangeRate
+  if(CurrencyStatus){
+    fromAmount = Amount 
+    toAmount = Amount * exchangeRate
   }else{
-    toAmount = amount
-    fromAmount = amount / exchangeRate
+    toAmount = Amount
+    fromAmount = Amount / exchangeRate
   }
 
-
 useEffect(()=>{
-    fetch(Api)
-    .then(res=> res.json())
-    .then(data =>{
-      const firstcurrancy = Object.keys(data.rates)
-      setcurrancyOptions([data.base , ...Object.keys(data.rates)])
-      setfromCurrancy(data.base)
-      settoCurrancy(firstcurrancy)
-      console.log(data)
-    })
+    fetch(`${URL}$base=${fromCurrency}$symbols=${toCurrency}`)
+    .then(res => res.json())
+    .then(info => setexchangeRate(info.rates[toCurrency]))
+},[fromCurrency, toCurrency])
 
-},[])
+  useEffect(()=>{
+        fetch(URL)
+        .then(res => res.json())
+        .then(info => {
+          const firstCurrency = Object.keys(info.rates)[0]
+          setCurrencyOption([info.base , ...Object.keys(info.rates)])
+          setfromCurrency(info.base)
+          settoCurrency(firstCurrency)
+        })
+  },[])
 
-useEffect(()=>{
-  fetch(`${Api}$base=${fromCurrancy}$symbols=${toCurrancy}`)
-  .then(res=> res.json())
-  .then(data => {
-           setexchangeRate(data.rates[toCurrancy])
-  })
-},[fromCurrancy, toCurrancy])
+  const handlefromCurrency = (e) =>{
+    setAmount(e.target.value)
+    setCurrencyStatus(true)
+  }
 
-  const handleFromAmount =(e) =>{
-    setamount(e.target.value)
-    setcheckCurrancyStatus(true)
-  }  
+  const handletoCurrency = (e) =>{
+    setAmount(e.target.value)
+    setCurrencyStatus(false)
+  }
 
-  const handleToAmount =(e) =>{
-    setamount(e.target.value)
-    setcheckCurrancyStatus(true)
-  }   
-
-  return(
-    <>
-    
-    <Currancy
-    currancyOptions={currancyOptions}
-    selectedCurrancy ={toCurrancy}
-    curracyChange = {e => settoCurrancy(e.target.value)}
-    amount = {toAmount}
-    onAmountChange = {handleToAmount}
-   />
-   <div>=</div>
-    <Currancy 
-    currancyOptions ={currancyOptions}
-    selectedCurrancy = {fromCurrancy}
-    curracyChange = {e => setfromCurrancy(e.target.value)}
-    amount = {fromAmount}
-    onAmountChange = {handleFromAmount}
-   />
-    
-    </>
-  )
+  return (
+    <div className = 'App'>
+    <h2 className='name'>Currency Converter</h2>
+    <div className='currency1'>
+     <Currancy
+     CurrencyOption = {CurrencyOption}
+     selectedCurrency ={fromCurrency}
+     CurrancyChange = {e =>{setfromCurrency(e.target.value)}}
+     Amount = {fromAmount}
+     changeAmount = {handlefromCurrency}
+     />
+     </div>
+     <div className='currency2'>
+     <Currancy 
+     CurrencyOption = {CurrencyOption}
+     selectedCurrency ={toCurrency}
+     CurrancyChange = {e =>{settoCurrency(e.target.value)}}
+     Amount = {toAmount}
+     changeAmount = {handletoCurrency}
+     />
+     </div>
+    </div>
+  );
 }
-export default App
+
+export default App;

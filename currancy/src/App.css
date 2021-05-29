@@ -1,6 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Code+Pro:wght@300&display=swap');
+
 body{
-  margin: 0;
-  display: flex;
-  justify-content: center;
+  margin: auto;
+  max-width: 600px;
   margin-top: 5rem;
+}
+.App{
+  background-color: rgba(96, 165, 250);
+  max-width: 500px;
+  border: 2px solid;
+  height: 500px;
+  width: 400px;
+  padding: 2rem;
+  box-shadow: 20px 25px #999;
+}
+.name{
+font-family: 'Source Code Pro', monospace;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 50px;
+}
+.currency1{
+  text-align: center;
+  margin: 2rem;
+}
+
+.currency2{
+  text-align: center;
+  margin: 2rem;
+}
+.inp{
+  padding: 1rem;
+  border-radius: 0.5rem;
+ 
+  text-align: center;
+  outline: none;
+  background-color: rgba(229, 231, 235);
+}
+.inp:focus{
+ background-color: white;
+}
+.sel{
+  padding: 1rem;
+  margin-left: 1rem;
+  border-radius: 00.5rem;
+  background-color:  rgba(252, 165, 165);
+}
+.sel:hover{
+  background-color: rgba(239, 68, 68);
 }
