@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Code+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 
 body{
   margin: auto;
@@ -7,15 +7,16 @@ body{
 }
 .App{
   background-color: rgba(96, 165, 250);
-  max-width: 500px;
+  max-width: 400px;
   border: 2px solid;
+  border-style: none;
   height: 500px;
   width: 400px;
   padding: 2rem;
   box-shadow: 20px 25px #999;
 }
 .name{
-font-family: 'Source Code Pro', monospace;
+  font-family: 'Sigmar One', cursive;
   text-align: center;
   font-weight: bolder;
   font-size: 50px;
@@ -32,10 +33,10 @@ font-family: 'Source Code Pro', monospace;
 .inp{
   padding: 1rem;
   border-radius: 0.5rem;
- 
+  font-size: 15px;
   text-align: center;
   outline: none;
-  background-color: rgba(229, 231, 235);
+  background-color: #e5e5e5;
 }
 .inp:focus{
  background-color: white;
@@ -48,4 +49,5 @@ font-family: 'Source Code Pro', monospace;
 }
 .sel:hover{
   background-color: rgba(239, 68, 68);
+  color: white ;
 }
