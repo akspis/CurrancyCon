@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/CurrancyCon/static/css/main.5af0b231.chunk.css",
+    "main.js": "/CurrancyCon/static/js/main.ba7c87b3.chunk.js",
+    "main.js.map": "/CurrancyCon/static/js/main.ba7c87b3.chunk.js.map",
+    "runtime-main.js": "/CurrancyCon/static/js/runtime-main.99748486.js",
+    "runtime-main.js.map": "/CurrancyCon/static/js/runtime-main.99748486.js.map",
+    "static/js/2.6573b416.chunk.js": "/CurrancyCon/static/js/2.6573b416.chunk.js",
+    "static/js/2.6573b416.chunk.js.map": "/CurrancyCon/static/js/2.6573b416.chunk.js.map",
+    "static/js/3.fc81998b.chunk.js": "/CurrancyCon/static/js/3.fc81998b.chunk.js",
+    "static/js/3.fc81998b.chunk.js.map": "/CurrancyCon/static/js/3.fc81998b.chunk.js.map",
+    "index.html": "/CurrancyCon/index.html",
+    "static/css/main.5af0b231.chunk.css.map": "/CurrancyCon/static/css/main.5af0b231.chunk.css.map",
+    "static/js/2.6573b416.chunk.js.LICENSE.txt": "/CurrancyCon/static/js/2.6573b416.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.99748486.js",
+    "static/js/2.6573b416.chunk.js",
+    "static/css/main.5af0b231.chunk.css",
+    "static/js/main.ba7c87b3.chunk.js"
+  ]
+}
